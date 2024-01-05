@@ -6,8 +6,52 @@
     </head>
     <body>
         <div id="main">
+            <div id="cmd-panel">
+                <h1>Control panel</h1>
+                <p>Configure what operations you want and then hit the Generate button.</p>
+                <p><em>Please remember that this document is meant to be printed.</em></p>
+                <h2>Config</h2>
+                <p>Type of operations:</p>
+                <span class="input-group"> 
+                    <input type="checkbox" name="chk-operators" id="chk-plus" value="+" checked />
+                    <label for="chk-plus">Addition (+)</label>
+                </span>
+                <span class="input-group"> 
+                    <input type="checkbox" name="chk-operators" id="chk-minus" value="-" checked />
+                    <label for="chk-minus">Subtraction (-)</label>
+                </span>
+                <span class="input-group"> 
+                    <input type="checkbox" name="chk-operators" id="chk-times" value="*" />
+                    <label for="chk-times">Multiplication (*)</label>
+                </span>
+                <span class="input-group"> 
+                    <input type="checkbox" name="chk-operators" id="chk-divided" value="/" />
+                    <label for="chk-divided">Division (/)</label>
+                </span>
+                <p>Other Config:</p>
+                <span class="input-group">
+                    <label for="txt-numofops">Number of operations</label>
+                    <input id="txt-numofops" type="number" min="1" max="1000" value="5"/>
+                </span>
+                <span class="input-group">
+                    <label for="txt-minnum">Min Number</label>
+                    <input id="txt-minnum" type="number" min="1" max="1000000" value="1"/>
+                </span>
+                <span class="input-group">
+                    <label for="txt-maxnum">Max Number</label>
+                    <input id="txt-maxnum" type="number" min="1" max="1000000" value="99"/>
+                </span>
+                <span class="input-group"> 
+                    <input type="checkbox" name="chk-onlynaturals" id="chk-onlynaturals" value="true" checked />
+                    <label for="chk-onlynaturals">Use only natural numbers in the results (no negatives)</label>
+                </span>
+                <br />
+                <button id="btn-generate">&#8634; Generate</button>
+                <button id="btn-print">&#128424; Print</button>
+
+            </div>
             <h1>Please solve the below operations</h1>
-            <div id="operations-list">
+            <ol type="1" id="operations-list">
 
             </div>
         </div>

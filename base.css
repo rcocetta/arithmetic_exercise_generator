@@ -1,9 +1,39 @@
 * {
-    font-family: 'Courier New', Courier, monospace
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 .operation {
-    display: block;
     padding: 20px;
     font-size: 20px;
+}
+.input-group {
+    display: block;
+}
+ol {
+    counter-reset: list;
+}
+ol > li {
+    list-style: none;
+}
+ol > li:before {
+    content: counter(list) ") ";
+    counter-increment: list;
+}
+
+button {
+    padding: 10px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+#cmd-panel {
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid #333333;
+}
+
+
+@media print {
+    #cmd-panel {
+        display: none;
+    }
 }

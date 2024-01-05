@@ -19,20 +19,48 @@ const createOperationString = (min, max, operators=[], onlyNaturals=true) => {
     const opId = randInt(0, operators.length);
     const op = operators[opId];
 
-    if (onlyNaturals && (t1 < t2) && (op === '-'))
+    if (onlyNaturals && (t1 < t2) && ((op === '-') || (op === '/')))
         return `${t2} ${op} ${t1} = `;
     return `${t1} ${op} ${t2} = `;
 
 }
 
 const addToDiv = (mainDiv, opStr) => {
-    let newHTML = `<div class="operation">${opStr}</div>`;
+    let newHTML = `<li class="operation">${opStr}</li>`;
     mainDiv.append(newHTML);
 }
 
 
 $(document).ready(() => {
-    container = $("#operations-list");
+    const container = $("#operations-list");
+
+    //first rendering
     for (let i = 0; i < config.numberOfOps; i++)
         addToDiv(container, createOperationString(config.minNum, config.maxNum, config.operators, config.onlyNaturals));
+    
+    // Generate new numbers
+    // TODO: Extract the validation and validate maxNum and minNum better
+    $("#btn-generate").on("click", () => {
+        let operators = $("[name=chk-operators]:checked").map((i, e) => e.value).toArray();
+        let numberOfOps = Number($("#txt-numofops").val());
+        let minNum = Number($("#txt-minnum").val());
+        let maxNum = Number($("#txt-maxnum").val());
+        let onlyNaturals = $("#chk-onlynaturals:checked").length > 0;
+
+        if (operators.length < 1) {
+            alert('You need to choose some operators please');
+            return;
+        }
+        if (numberOfOps > 1000) {
+            alert('We would not recommend to generate such a number of operations.');
+            return;
+        }
+
+        container.empty();
+        for (let i = 0; i < numberOfOps; i++)
+            addToDiv(container, createOperationString(minNum, maxNum, operators, onlyNaturals));
+    });
+
+    $("#btn-print").on("click", () => window.print());
 });
+
