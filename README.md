@@ -8,7 +8,7 @@ I will increase difficulty as he progresses.
 Please do not expect high quality code :D. 
 
 ## How to use
-Just download everything and open `index.html` in a browser. 
+You can find it on [Github Pages](https://rcocetta.github.io/arithmetic_exercise_generator/) or just download everything and open `index.html` in a browser. 
 
 The whole thing is meant to be printed and used separately by the kids, and when you print the control panel will be hidden.
 
