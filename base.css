@@ -1,0 +1,9 @@
+* {
+    font-family: 'Courier New', Courier, monospace
+}
+
+.operation {
+    display: block;
+    padding: 20px;
+    font-size: 20px;
+}
