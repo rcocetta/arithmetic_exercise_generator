@@ -11,12 +11,12 @@ const config = {
 
 
 
-const  randInt = (min, max) => Math.floor(Math.random() * max) + min; 
+const  randInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min; 
 
 const createOperationString = (min, max, operators=[], onlyNaturals=true) => {
     const t1 = randInt(min, max);
     const t2 = randInt(min, max);
-    const opId = randInt(0, operators.length);
+    const opId = randInt(0, operators.length - 1);
     const op = operators[opId];
 
     if (onlyNaturals && (t1 < t2) && ((op === '-') || (op === '/')))
