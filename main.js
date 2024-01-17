@@ -39,9 +39,7 @@ const dinamicallyResetForm = (cfg) => {
     $("#txt-maxnum").val(cfg.maxNum);
     $("#txt-numofops").val(cfg.numberOfOps);
     $("[name=chk-operators]").each((id, el) => $(el).prop('checked', cfg.operators.includes($(el).data("op"))));
-    let onlyNaturals = $("#chk-onlynaturals");
-    onlyNaturals.prop('checked', cfg.onlyNaturals);
-    
+    $("#chk-onlynaturals").prop('checked', cfg.onlyNaturals);  
 }
 
 $(document).ready(() => {
